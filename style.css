@@ -1,4 +1,4 @@
-/* Style CSS amélioré avec images */
+/* Style CSS amélioré avec gestion de l'apparition au scroll pour le footer */
 :root {
     --primary-color: #003366;
     --secondary-color: #3399ff;
@@ -14,7 +14,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
-    padding-bottom: 60px;
+    padding-bottom: 60px; /* Assurez-vous que le contenu ne soit pas caché par le footer fixe */
     position: relative;
     overflow-x: hidden;
 }
@@ -68,7 +68,7 @@ nav ul li a:hover {
     align-items: center;
     padding: 6rem 2rem;
     background: linear-gradient(to right, var(--primary-color), #0055aa);
-    text-align: left; /* Aligner le texte à gauche sur les écrans plus larges */
+    text-align: left;
     color: white;
     opacity: 0;
     transform: translateY(20px);
@@ -77,7 +77,7 @@ nav ul li a:hover {
 
 .hero-content {
     flex: 1;
-    padding-right: 2rem; /* Ajouter un peu d'espace entre le texte et l'image */
+    padding-right: 2rem;
 }
 
 .hero h1 {
@@ -96,7 +96,7 @@ nav ul li a:hover {
 
 .hero-image {
     flex: 1;
-    text-align: center; /* Centrer l'image */
+    text-align: center;
 }
 
 .hero-image img {
@@ -134,7 +134,7 @@ footer {
     padding: 1.5rem 1rem;
     font-size: 0.9rem;
     position: fixed;
-    bottom: -60px;
+    bottom: -60px; /* Initialement caché en bas */
     left: 0;
     width: 100%;
     z-index: 100;
@@ -143,7 +143,7 @@ footer {
 }
 
 body.scrolled-to-bottom footer {
-    bottom: 0;
+    bottom: 0; /* Apparaît lorsque le bas de la page est atteint */
 }
 
 footer:hover {
@@ -192,7 +192,7 @@ body.scrolled-up .services-page h2 {
 
 .pack {
     width: 320px;
-    margin-bottom: 3rem; /* Augmenter la marge pour l'image */
+    margin-bottom: 3rem;
     border: 1px solid #ddd;
     padding: 25px;
     text-align: center;
@@ -390,4 +390,108 @@ body.scrolled-up .submit-button {
         max-width: 95%;
     }
 
-    .hero-image img {
+    .hero-image {
+        margin-top: 2rem;
+    }
+
+    .packs-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pack {
+        width: 90%;
+    }
+
+    .section-packs, .section-contact, .services-page {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .section-packs h2, .section-contact h2, .services-page h2 {
+        font-size: 1.75rem;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    form label {
+        font-size: 0.85rem;
+    }
+
+    form input, form textarea {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .submit-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    nav .logo-inline img {
+        height: 25px;
+    }
+
+    nav ul li a {
+        font-size: 0.8rem;
+    }
+
+    .section-packs h2, .section-contact h2, .services-page h2 {
+        font-size: 1.5rem;
+    }
+
+    .pack {
+        width: 95%;
+    }
+}
+
+/* JavaScript pour la gestion de l'apparition au scroll */
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const body = document.body;
+    const footer = document.querySelector('footer');
+    const sectionsToAnimate = document.querySelectorAll('.section-packs, .section-contact, .services-page');
+
+    let isScrolledToBottom = false;
+
+    function checkScroll() {
+        // Vérifier si le bas de la page est atteint
+        const scrollHeight = document.documentElement.scrollHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const clientHeight = document.documentElement.clientHeight;
+
+        if (scrollTop + clientHeight >= scrollHeight - 5) { // -5 pour une petite marge
+            if (!isScrolledToBottom) {
+                body.classList.add('scrolled-to-bottom');
+                isScrolledToBottom = true;
+            }
+        } else {
+            if (isScrolledToBottom) {
+                body.classList.remove('scrolled-to-bottom');
+                isScrolledToBottom = false;
+            }
+        }
+
+        // Vérifier si on remonte un peu pour afficher les sections
+        if (scrollTop + clientHeight < scrollHeight - 100) { // 100px avant le bas
+            body.classList.add('scrolled-up');
+        } else {
+            body.classList.remove('scrolled-up');
+        }
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll); // Pour gérer le redimensionnement de la fenêtre
+});
+</script>
