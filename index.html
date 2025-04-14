@@ -11,7 +11,7 @@
 <body>
     <nav>
         <div class="logo-inline">
-            <img src="assets/logo.png" alt="NetSecure Logo" />
+            <img src="logo.png" alt="NetSecure Logo" />
             <strong>NetSecure</strong>
         </div>
         <ul>
@@ -27,7 +27,7 @@
             <a href="mailto:contact@netsecure.tn" class="cta-button">Demander un Audit Gratuit</a>
         </div>
         <div class="hero-image">
-            <img src="assets/hero-security.png" alt="Illustration de sécurité informatique">
+            <img src="hero-security.png" alt="Illustration de sécurité informatique">
         </div>
     </section>
     <section id="packs" class="section-packs">
@@ -43,7 +43,7 @@
                     <li>Gestion des licences</li>
                 </ul>
                 <p><strong>700 - 900 TND / mois</strong></p>
-                <img src="assets/pack-startup.png" alt="Illustration Pack Start'IT" class="pack-image">
+                <img src="pack-startup.png" alt="Illustration Pack Start'IT" class="pack-image">
             </div>
             <div class="pack">
                 <i class="fas fa-chart-line pack-icon"></i>
@@ -55,7 +55,7 @@
                     <li>Sauvegarde et sécurité avancées</li>
                 </ul>
                 <p><strong>1 500 - 2 200 TND / mois</strong></p>
-                <img src="assets/pack-growth.png" alt="Illustration Pack Grow'IT" class="pack-image">
+                <img src="pack-growth.png" alt="Illustration Pack Grow'IT" class="pack-image">
             </div>
             <div class="pack">
                 <i class="fas fa-lock pack-icon"></i>
@@ -67,7 +67,7 @@
                     <li>Intégration de logiciels de gestion</li>
                 </ul>
                 <p><strong>2 800 - 3 800 TND / mois</strong></p>
-                <img src="assets/pack-secure.png" alt="Illustration Pack Secure+Manage" class="pack-image">
+                <img src="pack-secure.png" alt="Illustration Pack Secure+Manage" class="pack-image">
             </div>
         </div>
     </section>
@@ -95,47 +95,39 @@
     </footer>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
         const body = document.body;
         const footer = document.querySelector('footer');
-        const sectionsToAnimate = document.querySelectorAll('.section-packs, .section-contact, .services-page');
-
-        let isScrolledToBottom = false;
 
         function checkScroll() {
             const scrollHeight = document.documentElement.scrollHeight;
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             const clientHeight = document.documentElement.clientHeight;
 
-            // Manage footer visibility
             if (scrollTop + clientHeight >= scrollHeight - 5) {
-                if (!isScrolledToBottom) {
-                    body.classList.add('scrolled-to-bottom');
-                    isScrolledToBottom = true;
-                }
+                body.classList.add('scrolled-to-bottom');
             } else {
-                if (isScrolledToBottom) {
-                    body.classList.remove('scrolled-to-bottom');
-                    isScrolledToBottom = false;
-                }
-            }
-
-            // Manage section visibility
-            if (window.innerWidth > 768) { // Larger screens: apply scroll-up animation
-                if (scrollTop > 100) { // Adjust scroll threshold as needed
-                    body.classList.add('scrolled-up');
-                } else {
-                    body.classList.remove('scrolled-up');
-                }
-            } else { // Smaller screens: ensure sections are visible
-                body.classList.add('scrolled-up');
+                body.classList.remove('scrolled-to-bottom');
             }
         }
 
-        // Initial check on load
-        checkScroll();
-
         window.addEventListener('scroll', checkScroll);
         window.addEventListener('resize', checkScroll);
+        checkScroll(); // Initial check
     });
     </script>
 </body>
