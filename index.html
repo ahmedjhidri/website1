@@ -15,9 +15,10 @@
             <strong>NetSecure</strong>
         </div>
         <ul>
+            <li><a href="index.html">Accueil</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="#packs">Packs</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="nav-right-image">
             <img src="logo.png" alt="Right Navigation Image">
@@ -98,7 +99,7 @@
     </footer>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"], nav a[href="contact.html"]');
         const body = document.body;
         const footer = document.querySelector('footer');
         const packsSection = document.getElementById('packs');
@@ -147,11 +148,13 @@
 
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
             });
         });
