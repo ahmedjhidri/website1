@@ -63,12 +63,14 @@ nav ul li a:hover {
 }
 
 .nav-right-image {
-    /* Add your styling for the right image here */
+    position: absolute;
+    top: 50%;
+    right: 2rem; /* Adjust as needed for spacing from the right */
+    transform: translateY(-50%); /* Vertically center the image */
 }
 
 .nav-right-image img {
-    /* Add your styling for the right image here */
-    height: 30px; /* Example height */
+    height: 30px; /* Adjust the height as needed */
 }
 
 .hero {
@@ -293,20 +295,12 @@ form input:focus, form textarea:focus {
         font-size: 0.9rem;
     }
 
-    .hero {
-        flex-direction: column;
-        align-items: center;
-        padding: 3rem 1.5rem;
-        text-align: center;
+    .nav-right-image {
+        position: static; /* Adjust positioning for smaller screens */
+        margin-top: 0.5rem;
+        text-align: right;
     }
 
-    .hero-content {
-        padding-right: 0;
-        margin-bottom: 2rem;
+    .nav-right-image img {
+        height: 25px; /* Adjust size for smaller screens */
     }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .
