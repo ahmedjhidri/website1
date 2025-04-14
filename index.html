@@ -17,7 +17,7 @@
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="#packs">Packs</a></li>
+            <li><a href="packages.html">Packages</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="nav-right-image">
@@ -34,46 +34,65 @@
             <img src="hero-security.png" alt="Illustration de sécurité informatique">
         </div>
     </section>
-    <section id="packs" class="section-packs">
+    <section class="section-packs">
         <h2>Nos Solutions Adaptées</h2>
-        <div class="packs-container">
-            <div class="pack">
-                <i class="fas fa-rocket pack-icon"></i>
+        <section class="package-presentation">
+            <div class="package-image">
+                <img src="pack-startup-presentation.png" alt="Illustration Pack Start'IT">
+            </div>
+            <div class="package-details">
                 <h3>Pack Start'IT</h3>
-                <p>Pour startups et indépendants.</p>
-                <ul>
-                    <li>Audit de sécurité</li>
-                    <li>Support IT de base</li>
-                    <li>Gestion des licences</li>
+                <p class="tagline">Pour startups et indépendants.</p>
+                <ul class="package-features">
+                    <li><i class="fas fa-check-circle"></i> Audit de sécurité initial</li>
+                    <li><i class="fas fa-check-circle"></i> Support IT de base (heures limitées)</li>
+                    <li><i class="fas fa-check-circle"></i> Gestion des licences logicielles essentielles</li>
+                    <li><i class="fas fa-check-circle"></i> Conseils sur les meilleures pratiques de sécurité</li>
                 </ul>
-                <p><strong>700 - 900 TND / mois</strong></p>
-                <img src="pack-startup.png" alt="Illustration Pack Start'IT" class="pack-image">
+                <div class="package-pricing">
+                    <p class="price">700 - 900 TND / mois</p>
+                    <a href="contact.html" class="cta-button">En savoir plus</a>
+                </div>
             </div>
-            <div class="pack">
-                <i class="fas fa-chart-line pack-icon"></i>
+        </section>
+        <section class="package-presentation">
+            <div class="package-image">
+                <img src="pack-growth-presentation.png" alt="Illustration Pack Grow'IT">
+            </div>
+            <div class="package-details">
                 <h3>Pack Grow'IT</h3>
-                <p>Pour petites entreprises en croissance.</p>
-                <ul>
-                    <li>Solutions cloud complètes</li>
-                    <li>Support IT étendu</li>
-                    <li>Sauvegarde et sécurité avancées</li>
+                <p class="tagline">Pour petites entreprises en croissance.</p>
+                <ul class="package-features">
+                    <li><i class="fas fa-check-circle"></i> Solutions cloud complètes (gestion et migration)</li>
+                    <li><i class="fas fa-check-circle"></i> Support IT étendu (plus d'heures incluses)</li>
+                    <li><i class="fas fa-check-circle"></i> Sauvegarde et restauration de données</li>
+                    <li><i class="fas fa-check-circle"></i> Surveillance de sécurité proactive</li>
                 </ul>
-                <p><strong>1 500 - 2 200 TND / mois</strong></p>
-                <img src="pack-growth.png" alt="Illustration Pack Grow'IT" class="pack-image">
+                <div class="package-pricing">
+                    <p class="price">1 500 - 2 200 TND / mois</p>
+                    <a href="contact.html" class="cta-button">En savoir plus</a>
+                </div>
             </div>
-            <div class="pack">
-                <i class="fas fa-lock pack-icon"></i>
+        </section>
+        <section class="package-presentation">
+            <div class="package-image">
+                <img src="pack-secure-presentation.png" alt="Illustration Pack Secure+Manage">
+            </div>
+            <div class="package-details">
                 <h3>Pack Secure+Manage</h3>
-                <p>Pour PME et agences.</p>
-                <ul>
-                    <li>Support IT illimité</li>
-                    <li>Sécurité de niveau entreprise</li>
-                    <li>Intégration de logiciels de gestion</li>
+                <p class="tagline">Pour PME et agences.</p>
+                <ul class="package-features">
+                    <li><i class="fas fa-check-circle"></i> Support IT illimité 24/7</li>
+                    <li><i class="fas fa-check-circle"></i> Sécurité de niveau entreprise (pare-feu avancé, détection d'intrusion)</li>
+                    <li><i class="fas fa-check-circle"></i> Intégration et support de logiciels de gestion (ERP, CRM)</li>
+                    <li><i class="fas fa-check-circle"></i> Consultation stratégique en IT</li>
                 </ul>
-                <p><strong>2 800 - 3 800 TND / mois</strong></p>
-                <img src="pack-secure.png" alt="Illustration Pack Secure+Manage" class="pack-image">
+                <div class="package-pricing">
+                    <p class="price">2 800 - 3 800 TND / mois</p>
+                    <a href="contact.html" class="cta-button">En savoir plus</a>
+                </div>
             </div>
-        </div>
+        </section>
     </section>
     <section id="contact" class="section-contact">
         <h2>Contactez-nous</h2>
@@ -105,46 +124,7 @@
         const packsSection = document.getElementById('packs');
         const contactSection = document.getElementById('contact');
 
-        // Make packs and contact sections visible on load
-        if (packsSection) {
-            packsSection.style.opacity = 1;
-            packsSection.style.transform = 'translateY(0)';
-            const packItems = packsSection.querySelectorAll('.pack');
-            packItems.forEach(pack => {
-                pack.style.opacity = 1;
-                pack.style.transform = 'translateY(0)';
-                const icon = pack.querySelector('.pack-icon');
-                if (icon) {
-                    icon.style.opacity = 1;
-                    icon.style.transform = 'translateY(0)';
-                }
-            });
-            const packsTitle = packsSection.querySelector('h2');
-            if (packsTitle) {
-                packsTitle.style.opacity = 1;
-                packsTitle.style.transform = 'translateY(0)';
-            }
-        }
-
-        if (contactSection) {
-            contactSection.style.opacity = 1;
-            contactSection.style.transform = 'translateY(0)';
-            const contactTitle = contactSection.querySelector('h2');
-            if (contactTitle) {
-                contactTitle.style.opacity = 1;
-                contactTitle.style.transform = 'translateY(0)';
-            }
-            const formGroups = contactSection.querySelectorAll('.form-group');
-            formGroups.forEach(group => {
-                group.style.opacity = 1;
-                group.style.transform = 'translateY(0)';
-            });
-            const submitButton = contactSection.querySelector('.submit-button');
-            if (submitButton) {
-                submitButton.style.opacity = 1;
-                submitButton.style.transform = 'translateY(0)';
-            }
-        }
+        // No need for the visibility adjustments for packs/contact here as they are now part of the main flow.
 
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
