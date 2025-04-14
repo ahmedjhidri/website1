@@ -1,44 +1,180 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NetSecure Consulting - Sécurité IT en Tunisie</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>NetSecure Consulting</h1>
-        <p>Votre expert en solutions IT et cybersécurité en Tunisie.</p>
-    </header>
-
-    <main>
-        <section>
-            <h2>Bienvenue chez NetSecure Consulting</h2>
-            <p>Nous offrons une gamme complète de services pour protéger votre entreprise contre les menaces numériques et optimiser votre infrastructure IT.</p>
-            <p>Découvrez nos services de cybersécurité, nos solutions cloud, notre maintenance IT et nos logiciels de gestion.</p>
-            <a href="#services">En savoir plus sur nos services</a>
-        </section>
-
-        <section id="services">
-            <h2>Nos Services Phares</h2>
-            <ul>
-                <li>Cybersécurité avancée</li>
-                <li>Solutions Cloud sur mesure</li>
-                <li>Maintenance et support IT réactif</li>
-                <li>Logiciels de gestion intégrés</li>
-            </ul>
-            <a href="services.html">Voir tous nos services</a>
-        </section>
-
-        <section id="contact">
-            <h2>Contactez-nous</h2>
-            <p>Prêt à sécuriser votre entreprise ? Contactez-nous pour une consultation gratuite.</p>
-            <a href="contact.html">Demander un devis</a>
-        </section>
-    </main>
-
+    <nav>
+        <div class="logo-inline">
+            <img src="logo.png" alt="NetSecure Logo" />
+            <strong>NetSecure</strong>
+        </div>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="#packs">Packs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-right-image">
+            <img src="logo.png" alt="Right Navigation Image">
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sécurisez Votre Entreprise avec NetSecure</h1>
+            <p>Expertise en cybersécurité et solutions IT sur mesure pour les entreprises tunisiennes.</p>
+            <a href="mailto:contact@netsecure.tn" class="cta-button">Demander un Audit Gratuit</a>
+        </div>
+        <div class="hero-image">
+            <img src="hero-security.png" alt="Illustration de sécurité informatique">
+        </div>
+    </section>
+    <section id="packs" class="section-packs">
+        <h2>Nos Solutions Adaptées</h2>
+        <div class="packs-container">
+            <div class="pack">
+                <i class="fas fa-rocket pack-icon"></i>
+                <h3>Pack Start'IT</h3>
+                <p>Pour startups et indépendants.</p>
+                <ul>
+                    <li>Audit de sécurité</li>
+                    <li>Support IT de base</li>
+                    <li>Gestion des licences</li>
+                </ul>
+                <p><strong>700 - 900 TND / mois</strong></p>
+                <img src="pack-startup.png" alt="Illustration Pack Start'IT" class="pack-image">
+            </div>
+            <div class="pack">
+                <i class="fas fa-chart-line pack-icon"></i>
+                <h3>Pack Grow'IT</h3>
+                <p>Pour petites entreprises en croissance.</p>
+                <ul>
+                    <li>Solutions cloud complètes</li>
+                    <li>Support IT étendu</li>
+                    <li>Sauvegarde et sécurité avancées</li>
+                </ul>
+                <p><strong>1 500 - 2 200 TND / mois</strong></p>
+                <img src="pack-growth.png" alt="Illustration Pack Grow'IT" class="pack-image">
+            </div>
+            <div class="pack">
+                <i class="fas fa-lock pack-icon"></i>
+                <h3>Pack Secure+Manage</h3>
+                <p>Pour PME et agences.</p>
+                <ul>
+                    <li>Support IT illimité</li>
+                    <li>Sécurité de niveau entreprise</li>
+                    <li>Intégration de logiciels de gestion</li>
+                </ul>
+                <p><strong>2 800 - 3 800 TND / mois</strong></p>
+                <img src="pack-secure.png" alt="Illustration Pack Secure+Manage" class="pack-image">
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="section-contact">
+        <h2>Contactez-nous</h2>
+        <p>Pour toute question ou demande de devis, remplissez le formulaire ci-dessous.</p>
+        <form>
+            <div class="form-group">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message :</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            <button type="submit" class="submit-button">Envoyer</button>
+        </form>
+    </section>
     <footer>
         <p>© 2025 NetSecure Consulting - Tous droits réservés</p>
     </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('nav a[href^="#"], nav a[href="contact.html"]');
+        const body = document.body;
+        const footer = document.querySelector('footer');
+        const packsSection = document.getElementById('packs');
+        const contactSection = document.getElementById('contact');
+
+        // Make packs and contact sections visible on load
+        if (packsSection) {
+            packsSection.style.opacity = 1;
+            packsSection.style.transform = 'translateY(0)';
+            const packItems = packsSection.querySelectorAll('.pack');
+            packItems.forEach(pack => {
+                pack.style.opacity = 1;
+                pack.style.transform = 'translateY(0)';
+                const icon = pack.querySelector('.pack-icon');
+                if (icon) {
+                    icon.style.opacity = 1;
+                    icon.style.transform = 'translateY(0)';
+                }
+            });
+            const packsTitle = packsSection.querySelector('h2');
+            if (packsTitle) {
+                packsTitle.style.opacity = 1;
+                packsTitle.style.transform = 'translateY(0)';
+            }
+        }
+
+        if (contactSection) {
+            contactSection.style.opacity = 1;
+            contactSection.style.transform = 'translateY(0)';
+            const contactTitle = contactSection.querySelector('h2');
+            if (contactTitle) {
+                contactTitle.style.opacity = 1;
+                contactTitle.style.transform = 'translateY(0)';
+            }
+            const formGroups = contactSection.querySelectorAll('.form-group');
+            formGroups.forEach(group => {
+                group.style.opacity = 1;
+                group.style.transform = 'translateY(0)';
+            });
+            const submitButton = contactSection.querySelector('.submit-button');
+            if (submitButton) {
+                submitButton.style.opacity = 1;
+                submitButton.style.transform = 'translateY(0)';
+            }
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        function checkScroll() {
+            const scrollHeight = document.documentElement.scrollHeight;
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const clientHeight = document.documentElement.clientHeight;
+
+            if (scrollTop + clientHeight >= scrollHeight - 5) {
+                body.classList.add('scrolled-to-bottom');
+            } else {
+                body.classList.remove('scrolled-to-bottom');
+            }
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('resize', checkScroll);
+        checkScroll(); // Initial check
+    });
+    </script>
 </body>
 </html>
