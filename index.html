@@ -96,22 +96,62 @@
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        const body = document.body;
+        const footer = document.querySelector('footer');
+        const packsSection = document.getElementById('packs');
+        const contactSection = document.getElementById('contact');
+
+        // Make packs and contact sections visible on load
+        if (packsSection) {
+            packsSection.style.opacity = 1;
+            packsSection.style.transform = 'translateY(0)';
+            const packItems = packsSection.querySelectorAll('.pack');
+            packItems.forEach(pack => {
+                pack.style.opacity = 1;
+                pack.style.transform = 'translateY(0)';
+                const icon = pack.querySelector('.pack-icon');
+                if (icon) {
+                    icon.style.opacity = 1;
+                    icon.style.transform = 'translateY(0)';
+                }
+            });
+            const packsTitle = packsSection.querySelector('h2');
+            if (packsTitle) {
+                packsTitle.style.opacity = 1;
+                packsTitle.style.transform = 'translateY(0)';
+            }
+        }
+
+        if (contactSection) {
+            contactSection.style.opacity = 1;
+            contactSection.style.transform = 'translateY(0)';
+            const contactTitle = contactSection.querySelector('h2');
+            if (contactTitle) {
+                contactTitle.style.opacity = 1;
+                contactTitle.style.transform = 'translateY(0)';
+            }
+            const formGroups = contactSection.querySelectorAll('.form-group');
+            formGroups.forEach(group => {
+                group.style.opacity = 1;
+                group.style.transform = 'translateY(0)';
+            });
+            const submitButton = contactSection.querySelector('.submit-button');
+            if (submitButton) {
+                submitButton.style.opacity = 1;
+                submitButton.style.transform = 'translateY(0)';
+            }
+        }
 
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-
                 if (targetElement) {
                     targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
-
-        const body = document.body;
-        const footer = document.querySelector('footer');
 
         function checkScroll() {
             const scrollHeight = document.documentElement.scrollHeight;
