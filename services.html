@@ -1,52 +1,164 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nos Services - NetSecure Consulting</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <nav>
-        <div class="logo-inline">
-            <img src="assets/logo.png" alt="NetSecure Logo" />
-            <strong>NetSecure</strong>
-        </div>
-        <ul>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="index.html#packs">Packs</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <section class="services-page">
-        <h2>Nos Services IT et Cybersécurité</h2>
-        <div class="services-container">
-            <div class="service">
-                <i class="fas fa-shield-alt service-icon"></i>
-                <h3>Cybersécurité</h3>
-                <p>Protection avancée contre les menaces numériques, audits de sécurité, gestion des vulnérabilités.</p>
-            </div>
-            <div class="service">
-                <i class="fas fa-cloud service-icon"></i>
-                <h3>Solutions Cloud</h3>
-                <p>Migration et gestion des infrastructures cloud, stockage sécurisé, solutions de sauvegarde.</p>
-            </div>
-            <div class="service">
-                <i class="fas fa-tools service-icon"></i>
-                <h3>Maintenance IT</h3>
-                <p>Support technique réactif, maintenance préventive, gestion des licences logicielles.</p>
-            </div>
-            <div class="service">
-                <i class="fas fa-cogs service-icon"></i>
-                <h3>Logiciels de Gestion</h3>
-                <p>Implémentation et personnalisation de logiciels ERP, CRM, RH, comptabilité.</p>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <p>© 2025 NetSecure Consulting - Tous droits réservés</p>
-    </footer>
-</body>
-</html>
+/* Style CSS amélioré */
+:root {
+    --primary-color: #003366;
+    --secondary-color: #3399ff;
+    --bg-color: #f4f7f9;
+    --text-color: #333;
+    --accent-color: #ff6600;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+nav img {
+    height: 40px;
+}
+
+nav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(to right, var(--primary-color), #0055aa);
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    max-width: 600px;
+}
+
+.cta-button {
+    margin-top: 2rem;
+    background: var(--accent-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #e65c00;
+}
+
+.logo-inline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-inline img {
+    height: 50px;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+}
+
+.section-packs, .section-contact, .services-page {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.packs-container, .services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.pack, .service {
+    width: 300px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.service-icon, .pack-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.submit-button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.submit-button:hover {
+    background-color: #e65c00;
+}
