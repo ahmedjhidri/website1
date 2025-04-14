@@ -15,100 +15,137 @@ body {
     color: var(--text-color);
     margin: 0;
     line-height: 1.6;
+    display: flex; /* Enable flexbox for overall layout */
 }
 
-/* Navigation */
-nav {
+/* Left Navigation Sidebar */
+.left-nav {
     background: var(--primary-color);
     color: white;
-    padding: 1rem 2rem;
+    padding: 1rem;
+    width: 180px; /* Adjust width as needed */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     box-shadow: var(--box-shadow);
+    z-index: 10;
+    position: fixed; /* Fixed sidebar */
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto; /* Enable scrolling if content overflows */
 }
 
-nav ul {
+.left-nav .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.left-nav .logo-container img {
+    height: 50px; /* Adjust logo height */
+    margin-bottom: 0.5rem;
+}
+
+.left-nav .logo-container strong {
+    font-size: 1.1rem;
+}
+
+.left-nav .logo-container span {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+}
+
+.left-nav .nav-buttons {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 1.5rem;
+    flex-direction: column;
+    width: 100%;
 }
 
-nav ul li a {
+.left-nav .nav-buttons li {
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.left-nav .nav-buttons li a {
     color: white;
     text-decoration: none;
     font-weight: 500;
     transition: color var(--transition-duration);
+    display: block;
+    padding: 0.75rem 0;
 }
 
-nav ul li a:hover {
+.left-nav .nav-buttons li a:hover {
     color: var(--secondary-color);
-}
-
-/* Header Styles (for main headings and intro text on each page) */
-header {
-    padding: 4rem 2rem;
-    text-align: center;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-header h1 {
-    color: var(--primary-color);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-header p {
-    color: var(--text-color);
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto 1.5rem;
 }
 
 /* Main Content Area */
 main {
+    flex-grow: 1;
     padding: 2rem;
+    margin-left: 180px; /* Adjust margin to accommodate the sidebar width */
 }
 
-/* Sections (general styling for consistent padding) */
-section {
-    padding: 3rem 0;
-    max-width: 960px;
-    margin: 0 auto;
+/* Header Styles */
+header {
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
-section h2 {
+header .header-content {
+    text-align: left;
+}
+
+header h1 {
     color: var(--primary-color);
     font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--text-color);
+    font-size: 1rem;
+    max-width: 700px;
+}
+
+header .logo-right img {
+    height: 40px; /* Adjust logo size in header */
 }
 
 /* Hero Section (on Accueil) */
 .hero {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 5rem 2rem;
+    padding: 3rem 0;
     background: linear-gradient(to right, var(--primary-color), #0055aa);
     color: white;
     text-align: center;
+    padding: 4rem 2rem;
+    border-radius: 8px;
 }
 
 .hero-content {
-    max-width: 500px;
+    max-width: 600px;
+    margin: 0 auto 2rem;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 2rem;
 }
 
@@ -116,7 +153,7 @@ section h2 {
     display: inline-block;
     background: var(--accent-color);
     color: white;
-    padding: 1rem 2rem;
+    padding: 0.8rem 1.5rem;
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
@@ -127,32 +164,53 @@ section h2 {
     background: #e65c00;
 }
 
-/* Package Presentation Section (on Accueil) */
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Package Presentation Section */
+.section-packs {
+    padding: 2rem 0;
+}
+
+.section-packs h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
 .package-presentation {
     display: flex;
-    flex-wrap: wrap; /* Allows content to wrap on smaller screens */
-    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
     background-color: white;
     border-radius: 8px;
     box-shadow: var(--box-shadow);
-    overflow: hidden; /* To contain rounded corners and shadows */
+    overflow: hidden;
 }
 
 .package-image {
-    flex: 0 0 30%; /* Adjust the width of the image area */
+    flex: 0 0 30%;
     padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .package-image img {
     display: block;
-    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 6px;
 }
 
 .package-details {
-    flex: 0 0 70%; /* Adjust the width of the details area */
-    padding: 1.5rem;
+    flex: 0 0 70%;
+    padding: 1rem 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -162,26 +220,26 @@ section h2 {
     color: var(--secondary-color);
     margin-top: 0;
     margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .package-details .tagline {
     color: var(--text-color);
     font-style: italic;
     margin-bottom: 1rem;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .package-details .package-features {
     list-style: none;
     padding: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .package-details .package-features li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     color: var(--text-color);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
 }
@@ -198,7 +256,7 @@ section h2 {
 }
 
 .package-details .package-pricing .price {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--accent-color);
     font-weight: bold;
 }
@@ -206,52 +264,53 @@ section h2 {
 .package-details .package-pricing .cta-button {
     background: var(--accent-color);
     color: white;
-    padding: 0.75rem 1.5rem;
+    padding: 0.6rem 1.2rem;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 6px;
     font-weight: bold;
     transition: background var(--transition-duration);
+    font-size: 0.9rem;
 }
 
 .package-details .package-pricing .cta-button:hover {
     background: #e65c00;
 }
 
-/* Contact Section (on Accueil) */
+/* Contact Section */
 .section-contact {
-    padding: 3rem 0;
-    max-width: 600px;
+    padding: 2rem 0;
+    max-width: 700px;
     margin: 0 auto;
     text-align: center;
 }
 
 .section-contact h2 {
     color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
 }
 
 .form-group {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
     text-align: left;
 }
 
 .form-group label {
     display: block;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     color: var(--primary-color);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group textarea {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.6rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     box-sizing: border-box;
 }
 
@@ -262,10 +321,10 @@ section h2 {
 .submit-button {
     background: var(--accent-color);
     color: white;
-    padding: 0.8rem 1.5rem;
+    padding: 0.7rem 1.3rem;
     border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
+    border-radius: 6px;
+    font-size: 1rem;
     cursor: pointer;
     font-weight: bold;
     transition: background var(--transition-duration);
@@ -280,26 +339,78 @@ footer {
     background-color: var(--primary-color);
     color: white;
     text-align: center;
-    padding: 1.5rem 2rem;
-    font-size: 0.9rem;
+    padding: 1rem 2rem;
+    font-size: 0.8rem;
     margin-top: 2rem;
+    margin-left: 180px; /* Adjust margin to align with main content */
 }
 
-/* Media Queries for Responsiveness (adjust as needed) */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .hero {
+    body {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    .left-nav {
+        position: static; /* Make navigation static at the top */
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        overflow-y: visible;
+    }
+
+    .left-nav .logo-container {
+        margin-bottom: 0;
+        padding: 0;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .left-nav .logo-container span {
+        display: none; /* Hide "CONSULTING" on smaller screens */
+    }
+
+    .left-nav .nav-buttons {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .left-nav .nav-buttons li {
+        margin-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .left-nav .nav-buttons li a {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    main {
+        margin-left: 0; /* Remove left margin */
+        padding-top: 60px; /* Adjust top padding to accommodate top navigation */
+    }
+
+    header {
+        padding: 1rem;
         flex-direction: column;
+        align-items: center;
         text-align: center;
     }
 
-    .hero-content {
-        margin-bottom: 2rem;
+    header .header-content {
+        text-align: center;
+        margin-bottom: 1rem;
     }
 
-    .package-presentation {
-        flex-direction: column;
+    header .logo-right {
+        margin-top: 1rem;
     }
 
-    .package-image {
-        flex: 0 0 100%;
-        padding:
+    footer {
+        margin-left: 0; /* Remove left margin */
+    }
+}
