@@ -3,103 +3,35 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NetSecure Consulting</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        /* CSS amélioré (exemples) */
-        :root {
-            --primary-color: #001f3f;
-            --secondary-color: #00bfff;
-            --bg-color: #f4f6f8;
-            --text-color: #333;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); }
-        nav { background: var(--primary-color); color: white; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
-        nav img { height: 40px; }
-        nav ul { display: flex; gap: 1.5rem; list-style: none; }
-        nav a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
-        nav a:hover { color: var(--secondary-color); }
-        .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 6rem 2rem; background: linear-gradient(to right, #002b5c, #005fa3); text-align: center; color: white; position: relative; }
-        .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
-        .hero p { font-size: 1.25rem; opacity: 0.95; max-width: 600px; }
-        .hero .cta-button { margin-top: 2rem; background: var(--secondary-color); color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; text-decoration: none; transition: background 0.3s; }
-        .hero .cta-button:hover { background: #009ad6; }
-        .logo-inline { display: flex; align-items: center; gap: 1rem; }
-        .logo-inline img { height: 50px; }
-        footer { background-color: var(--primary-color); color: white; text-align: center; padding: 2rem 1rem; font-size: 0.9rem; }
-        /* Animations */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .hero h1, .hero p, .hero .cta-button { opacity: 0; animation: fadeInUp 1s ease-out forwards; }
-        .hero h1 { animation-delay: 0.2s; }
-        .hero p { animation-delay: 0.4s; }
-        .hero .cta-button { animation-delay: 0.6s; }
-        nav a, .cta-button { transition: all 0.3s ease-in-out; }
-        .cta-button:hover { transform: scale(1.05); }
-        nav a:hover { color: #66d4ff; }
-        /* nouvelles sections */
-        #services, #packs, #contact { padding: 4rem 2rem; max-width: 1000px; margin: auto; }
-        #services div, #packs div{display: flex; flex-wrap: wrap; justify-content: space-around;}
-        #services div div, #packs div div{width: 300px; margin-bottom: 20px;}
-        #packs div div{border: 1px solid #ddd; padding: 20px;}
-        #contact form {width: 400px; margin: auto;}
-        #contact form div {margin-bottom: 10px;}
-        #contact form input, #contact form textarea {width: 100%; padding: 8px; border: 1px solid #ddd;}
-        #contact form button {background-color: #00bfff; color: white; padding: 10px 20px; border: none; cursor: pointer;}
-        /* icônes */
-        .service-icon, .pack-icon { font-size: 2rem; margin-bottom: 10px; color: var(--secondary-color); }
-    </style>
+    <title>NetSecure Consulting - Sécurité IT en Tunisie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <nav>
         <div class="logo-inline">
-            <img src="logo.png" alt="NetSecure Logo" />
+            <img src="assets/logo.png" alt="NetSecure Logo" />
             <strong>NetSecure</strong>
         </div>
         <ul>
-            <li><a href="#services">Services</a></li>
+            <li><a href="services.html">Services</a></li>
             <li><a href="#packs">Packs</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     <section class="hero">
-        <h1>Protégez votre entreprise dès aujourd’hui</h1>
-        <p>NetSecure Consulting vous accompagne pour sécuriser, moderniser et gérer efficacement votre infrastructure informatique en Tunisie.</p>
-        <a href="mailto:contact@netsecure.tn" class="cta-button">Demander un audit gratuit</a>
+        <h1>Sécurisez Votre Entreprise avec NetSecure</h1>
+        <p>Expertise en cybersécurité et solutions IT sur mesure pour les entreprises tunisiennes.</p>
+        <a href="mailto:contact@netsecure.tn" class="cta-button">Demander un Audit Gratuit</a>
     </section>
-    <section id="services">
-        <h2>Nos Services</h2>
-        <div>
-            <div>
-                <i class="fas fa-shield-alt service-icon"></i>
-                <h3>Cybersécurité</h3>
-                <p>Protection contre les menaces en ligne, audits de sécurité, gestion des vulnérabilités.</p>
-            </div>
-            <div>
-                <i class="fas fa-cloud service-icon"></i>
-                <h3>Solutions Cloud</h3>
-                <p>Migration vers le cloud, gestion des infrastructures cloud, solutions de stockage et de sauvegarde.</p>
-            </div>
-            <div>
-                <i class="fas fa-tools service-icon"></i>
-                <h3>Maintenance IT</h3>
-                <p>Support technique, maintenance préventive, gestion des licences logicielles.</p>
-            </div>
-            <div>
-                <i class="fas fa-cogs service-icon"></i>
-                <h3>Logiciels de Gestion</h3>
-                <p>Implémentation et personnalisation de logiciels de gestion (ERP, CRM, RH, etc.).</p>
-            </div>
-        </div>
-    </section>
-    <section id="packs">
-        <h2>Nos Packs</h2>
-        <div>
-            <div>
+    <section id="packs" class="section-packs">
+        <h2>Nos Solutions Adaptées</h2>
+        <div class="packs-container">
+            <div class="pack">
                 <i class="fas fa-rocket pack-icon"></i>
                 <h3>Pack Start'IT</h3>
-                <p>Pour les startups et les indépendants.</p>
+                <p>Pour startups et indépendants.</p>
                 <ul>
                     <li>Audit de sécurité</li>
                     <li>Support IT de base</li>
@@ -107,10 +39,10 @@
                 </ul>
                 <p><strong>700 - 900 TND / mois</strong></p>
             </div>
-            <div>
+            <div class="pack">
                 <i class="fas fa-chart-line pack-icon"></i>
                 <h3>Pack Grow'IT</h3>
-                <p>Pour les petites entreprises en croissance.</p>
+                <p>Pour petites entreprises en croissance.</p>
                 <ul>
                     <li>Solutions cloud complètes</li>
                     <li>Support IT étendu</li>
@@ -118,10 +50,10 @@
                 </ul>
                 <p><strong>1 500 - 2 200 TND / mois</strong></p>
             </div>
-            <div>
+            <div class="pack">
                 <i class="fas fa-lock pack-icon"></i>
                 <h3>Pack Secure+Manage</h3>
-                <p>Pour les PME et les agences.</p>
+                <p>Pour PME et agences.</p>
                 <ul>
                     <li>Support IT illimité</li>
                     <li>Sécurité de niveau entreprise</li>
@@ -131,23 +63,23 @@
             </div>
         </div>
     </section>
-    <section id="contact">
+    <section id="contact" class="section-contact">
         <h2>Contactez-nous</h2>
-        <p>Pour toute question ou demande de devis, n'hésitez pas à nous contacter.</p>
+        <p>Pour toute question ou demande de devis, remplissez le formulaire ci-dessous.</p>
         <form>
-            <div>
-                <label for="name">Nom :</label><br>
+            <div class="form-group">
+                <label for="name">Nom :</label>
                 <input type="text" id="name" name="name">
             </div>
-            <div>
-                <label for="email">Email :</label><br>
+            <div class="form-group">
+                <label for="email">Email :</label>
                 <input type="email" id="email" name="email">
             </div>
-            <div>
-                <label for="message">Message :</label><br>
+            <div class="form-group">
+                <label for="message">Message :</label>
                 <textarea id="message" name="message"></textarea>
             </div>
-            <button type="submit">Envoyer</button>
+            <button type="submit" class="submit-button">Envoyer</button>
         </form>
     </section>
     <footer>
