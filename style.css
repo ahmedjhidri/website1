@@ -12,7 +12,8 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
-    padding: 0;
+    padding-bottom: 60px; /* Ajoute de l'espace pour la barre fixe */
+    position: relative; /* Nécessaire pour positionner la barre footer */
 }
 
 nav {
@@ -25,7 +26,7 @@ nav {
 }
 
 nav img {
-    height: 40px; /* Adjust logo height as needed */
+    height: 40px; /* Ajustez la hauteur du logo si nécessaire */
 }
 
 nav ul {
@@ -93,7 +94,7 @@ nav a:hover {
 }
 
 .logo-inline img {
-    height: 50px; /* Adjust logo height as needed */
+    height: 50px; /* Ajustez la hauteur du logo si nécessaire */
 }
 
 footer {
@@ -102,6 +103,11 @@ footer {
     text-align: center;
     padding: 2rem 1rem;
     font-size: 0.9rem;
+    position: fixed; /* Fixe la barre au viewport */
+    bottom: 0; /* Colle la barre au bas du viewport */
+    left: 0;
+    width: 100%; /* Assure que la barre prend toute la largeur */
+    z-index: 100; /* Assure qu'elle est au-dessus des autres éléments */
 }
 
 .section-packs, .section-contact, .services-page {
