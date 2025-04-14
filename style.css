@@ -1,10 +1,12 @@
-/* Style CSS amélioré */
+/* Style CSS amélioré avec animations */
 :root {
     --primary-color: #003366;
     --secondary-color: #3399ff;
     --bg-color: #f4f7f9;
     --text-color: #333;
     --accent-color: #ff6600;
+    --transition-duration: 0.3s;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -12,8 +14,9 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
-    padding-bottom: 60px; /* Ajoute de l'espace pour la barre fixe */
-    position: relative; /* Nécessaire pour positionner la barre footer */
+    padding-bottom: 60px;
+    position: relative;
+    overflow-x: hidden; /* Empêche le défilement horizontal inattendu */
 }
 
 nav {
@@ -23,10 +26,22 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    box-shadow: var(--box-shadow);
+    transition: background var(--transition-duration);
 }
 
-nav img {
-    height: 40px; /* Ajustez la hauteur du logo si nécessaire */
+nav:hover {
+    background: #004488;
+}
+
+nav .logo-inline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+nav .logo-inline img {
+    height: 40px;
 }
 
 nav ul {
@@ -35,14 +50,14 @@ nav ul {
     list-style: none;
 }
 
-nav a {
+nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color var(--transition-duration);
 }
 
-nav a:hover {
+nav ul li a:hover {
     color: var(--secondary-color);
 }
 
@@ -55,116 +70,219 @@ nav a:hover {
     background: linear-gradient(to right, var(--primary-color), #0055aa);
     text-align: center;
     color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s ease-out 0.5s forwards;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .hero p {
     font-size: 1.25rem;
     opacity: 0.95;
-    max-width: 600px;
+    max-width: 700px;
+    line-height: 1.7;
 }
 
 .cta-button {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     background: var(--accent-color);
     color: white;
-    padding: 1rem 2rem;
+    padding: 1.2rem 2.5rem;
     border: none;
     border-radius: 8px;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.1rem;
     cursor: pointer;
     text-decoration: none;
-    transition: background 0.3s;
+    transition: background var(--transition-duration), transform var(--transition-duration), box-shadow var(--transition-duration);
+    box-shadow: var(--box-shadow);
 }
 
 .cta-button:hover {
     background: #e65c00;
-}
-
-.logo-inline {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.logo-inline img {
-    height: 50px; /* Ajustez la hauteur du logo si nécessaire */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 footer {
     background-color: var(--primary-color);
     color: white;
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
     font-size: 0.9rem;
-    position: fixed; /* Fixe la barre au viewport */
-    bottom: 0; /* Colle la barre au bas du viewport */
+    position: fixed;
+    bottom: 0;
     left: 0;
-    width: 100%; /* Assure que la barre prend toute la largeur */
-    z-index: 100; /* Assure qu'elle est au-dessus des autres éléments */
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    transition: background var(--transition-duration);
+}
+
+footer:hover {
+    background: #004488;
 }
 
 .section-packs, .section-contact, .services-page {
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
     max-width: 1200px;
     margin: auto;
+}
+
+.section-packs h2, .section-contact h2, .services-page h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary-color);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeDown 1s ease-out 0.5s forwards;
 }
 
 .packs-container, .services-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 2rem;
 }
 
 .pack, .service {
-    width: 300px;
+    width: 320px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 12px;
     background-color: white;
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.pack:nth-child(even), .service:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+.pack:nth-child(odd) .pack-icon,
+.service:nth-child(odd) .service-icon {
+    animation-delay: 0.4s;
+}
+
+.pack:nth-child(even) .pack-icon,
+.service:nth-child(even) .service-icon {
+    animation-delay: 0.6s;
+}
+
+.pack:hover, .service:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .service-icon, .pack-icon {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
     color: var(--secondary-color);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUpSmall 0.6s ease-out 0.7s forwards;
+}
+
+.pack ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.pack ul li {
+    margin-bottom: 0.7rem;
+    color: var(--text-color);
+}
+
+.pack strong {
+    font-size: 1.1rem;
+    color: var(--accent-color);
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease-out 0.7s forwards;
 }
 
 form label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: 500;
+    color: var(--primary-color);
 }
 
 form input, form textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+form input:focus, form textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(var(--secondary-color-rgb), 0.5);
 }
 
 .submit-button {
     background-color: var(--accent-color);
     color: white;
-    padding: 12px 20px;
+    padding: 14px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    transition: background-color var(--transition-duration), transform var(--transition-duration), box-shadow var(--transition-duration);
+    box-shadow: var(--box-shadow);
 }
 
 .submit-button:hover {
     background-color: #e65c00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Animations Keyframes */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeUpSmall {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
