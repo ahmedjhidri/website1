@@ -1,4 +1,4 @@
-/* Style CSS amélioré avec gestion de l'apparition au scroll pour le footer */
+/* Style CSS amélioré avec animations pour la page Services */
 :root {
     --primary-color: #003366;
     --secondary-color: #3399ff;
@@ -303,24 +303,6 @@ form input:focus, form textarea:focus {
     .nav-right-image img {
         height: 25px; /* Adjust size for smaller screens */
     }
-
-    .services-page {
-        padding: 2rem 1.5rem;
-    }
-
-    .services-page h1 {
-        font-size: 2rem;
-    }
-
-    .service {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-
-    .service h3 {
-        font-size: 1.3rem;
-    }
 }
 
 @media (max-width: 576px) {
@@ -337,7 +319,7 @@ form input:focus, form textarea:focus {
     }
 }
 
-/* Styles for the Services Page */
+/* Styles for the Services Page (Enhanced) */
 .services-page {
     padding: 3rem 2rem;
     max-width: 960px;
@@ -345,120 +327,114 @@ form input:focus, form textarea:focus {
 }
 
 .services-page h1 {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
     color: var(--primary-color);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
 }
 
 .service {
     background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: var(--box-shadow);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
     display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
+    align-items: center; /* Align icon and text vertically */
+    gap: 2rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out 0.4s forwards; /* Staggered appearance */
 }
 
-.service h3 {
-    font-size: 1.5rem;
-    color: var(--secondary-color);
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+.service:nth-child(2) {
+    animation-delay: 0.6s;
 }
 
-.service h3 i {
-    font-size: 1.2rem;
+.service:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.service:nth-child(4) {
+    animation-delay: 1.0s;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.service-icon {
+    font-size: 2rem;
     color: var(--accent-color);
-    width: 24px; /* Adjust as needed for icon alignment */
+    width: 40px; /* Ensure consistent icon width */
     text-align: center;
 }
 
-.service p {
-    line-height: 1.6;
-    color: var(--text-color);
-}
-/* Styles for the Services Page */
-.services-page {
-    padding: 3rem 2rem;
-    max-width: 960px;
-    margin: 0 auto;
+.service-details {
+    flex-grow: 1;
 }
 
-.services-page h1 {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.service {
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: var(--box-shadow);
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-}
-
-.service h3 {
-    font-size: 1.5rem;
+.service-details h3 {
+    font-size: 1.75rem;
     color: var(--secondary-color);
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
-.service h3 i {
-    font-size: 1.2rem;
-    color: var(--accent-color);
-    width: 24px; /* Adjust as needed for icon alignment */
-    text-align: center;
-}
-
-.service p {
-    line-height: 1.6;
+.service-details p {
+    line-height: 1.7;
     color: var(--text-color);
 }
 
-/* Responsive adjustments for smaller screens */
+/* Keyframes for fadeInUp animation */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries for smaller screens (Services Page) */
 @media (max-width: 768px) {
     .services-page {
         padding: 2rem 1.5rem;
     }
 
     .services-page h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
     }
 
     .service {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.5rem;
+        gap: 1rem;
     }
 
-    .service h3 {
-        font-size: 1.3rem;
+    .service-icon {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .service-details h3 {
+        font-size: 1.5rem;
     }
 }
 
 @media (max-width: 576px) {
     .services-page h1 {
-        font-size: 1.75rem;
+        font-size: 1.9rem;
     }
 
-    .service h3 {
-        font-size: 1.2rem;
+    .service-details h3 {
+        font-size: 1.3rem;
     }
 
-    .service p {
-        font-size: 0.95rem;
+    .service-details p {
+        font-size: 0.9rem;
     }
 }
