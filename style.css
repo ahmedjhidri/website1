@@ -87,7 +87,7 @@ section h2 {
     text-align: center;
 }
 
-/* Accueil Page Styles */
+/* Hero Section (on Accueil) */
 .hero {
     display: flex;
     justify-content: space-around;
@@ -127,160 +127,83 @@ section h2 {
     background: #e65c00;
 }
 
-/* Packs Section (on Accueil) */
-.packs-container {
+/* Package Presentation Section (on Accueil) */
+.package-presentation {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.pack {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: center;
-    width: 300px;
-    box-shadow: var(--box-shadow);
-}
-
-.pack .pack-icon {
-    font-size: 2rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-}
-
-.pack h3 {
-    color: var(--secondary-color);
-    margin-bottom: 0.5rem;
-}
-
-.pack p {
-    font-size: 0.95rem;
-}
-
-.pack ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 1rem;
-}
-
-.pack ul li {
-    font-size: 0.9rem;
-    margin-bottom: 0.3rem;
-}
-
-/* Services Page Styles */
-.services-page {
-    padding: 2rem;
-}
-
-.services-page .service {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--box-shadow);
-}
-
-.services-page .service h2 {
-    font-size: 1.8rem;
-    color: var(--secondary-color);
-    margin-bottom: 0.75rem;
-    text-align: left;
-}
-
-.services-page .service p {
-    margin-bottom: 1rem;
-}
-
-.services-page .service ul {
-    list-style: disc;
-    padding-left: 1.5rem;
-}
-
-.services-page .service ul li {
-    font-size: 0.95rem;
-    margin-bottom: 0.25rem;
-}
-
-/* Packages Page Styles */
-.packages-page {
-    padding: 2rem;
-}
-
-.packages-page .package-detail {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1.5rem;
+    flex-wrap: wrap; /* Allows content to wrap on smaller screens */
     margin-bottom: 2rem;
+    background-color: white;
+    border-radius: 8px;
     box-shadow: var(--box-shadow);
+    overflow: hidden; /* To contain rounded corners and shadows */
 }
 
-.packages-page .package-detail h2 {
-    font-size: 1.8rem;
+.package-image {
+    flex: 0 0 30%; /* Adjust the width of the image area */
+    padding: 1rem;
+}
+
+.package-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.package-details {
+    flex: 0 0 70%; /* Adjust the width of the details area */
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.package-details h3 {
     color: var(--secondary-color);
+    margin-top: 0;
     margin-bottom: 0.5rem;
+    font-size: 1.5rem;
 }
 
-.packages-page .package-detail .tagline {
+.package-details .tagline {
     color: var(--text-color);
     font-style: italic;
     margin-bottom: 1rem;
+    font-size: 0.95rem;
 }
 
-.packages-page .package-detail .package-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+.package-details .package-features {
+    list-style: none;
+    padding: 0;
     margin-bottom: 1.5rem;
 }
 
-.packages-page .package-detail .package-features {
-    flex: 1;
-    margin-right: 1rem;
-}
-
-.packages-page .package-detail .package-features h3 {
-    color: var(--primary-color);
-    font-size: 1.2rem;
+.package-details .package-features li {
     margin-bottom: 0.5rem;
-}
-
-.packages-page .package-detail .package-features ul {
-    list-style: disc;
-    padding-left: 1.5rem;
-}
-
-.packages-page .package-detail .package-features ul li {
+    color: var(--text-color);
     font-size: 0.95rem;
-    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
 }
 
-.packages-page .package-detail .package-pricing {
-    flex-shrink: 0;
-    text-align: right;
+.package-details .package-features li i {
+    color: var(--secondary-color);
+    margin-right: 0.5rem;
 }
 
-.packages-page .package-detail .package-pricing h3 {
-    color: var(--primary-color);
+.package-details .package-pricing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.package-details .package-pricing .price {
     font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.packages-page .package-detail .package-pricing .price {
-    font-size: 1.5rem;
     color: var(--accent-color);
     font-weight: bold;
-    margin-bottom: 0.75rem;
 }
 
-.packages-page .package-detail .package-pricing a {
-    display: inline-block;
+.package-details .package-pricing .cta-button {
     background: var(--accent-color);
     color: white;
     padding: 0.75rem 1.5rem;
@@ -290,53 +213,30 @@ section h2 {
     transition: background var(--transition-duration);
 }
 
-.packages-page .package-detail .package-pricing a:hover {
+.package-details .package-pricing .cta-button:hover {
     background: #e65c00;
 }
 
-.packages-page .package-detail .package-description {
-    margin-top: 1.5rem;
-    font-size: 0.95rem;
-    line-height: 1.7;
-}
-
-.packages-page .package-detail img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-top: 1rem;
-    box-shadow: var(--box-shadow);
-}
-
-/* Contact Page Styles */
-.contact-page {
-    padding: 2rem;
-}
-
-.contact-page .contact-form {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: var(--box-shadow);
+/* Contact Section (on Accueil) */
+.section-contact {
+    padding: 3rem 0;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.contact-page .contact-form h2 {
-    font-size: 1.8rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
+.section-contact h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
     text-align: left;
 }
 
-.contact-page .contact-form .form-group {
-    margin-bottom: 1.2rem;
-}
-
-.contact-page .contact-form label {
+.form-group label {
     display: block;
     font-weight: bold;
     margin-bottom: 0.5rem;
@@ -344,9 +244,9 @@ section h2 {
     font-size: 0.95rem;
 }
 
-.contact-page .contact-form input[type="text"],
-.contact-page .contact-form input[type="email"],
-.contact-page .contact-form textarea {
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
@@ -355,11 +255,11 @@ section h2 {
     box-sizing: border-box;
 }
 
-.contact-page .contact-form textarea {
+.form-group textarea {
     resize: vertical;
 }
 
-.contact-page .contact-form .submit-button {
+.submit-button {
     background: var(--accent-color);
     color: white;
     padding: 0.8rem 1.5rem;
@@ -371,35 +271,8 @@ section h2 {
     transition: background var(--transition-duration);
 }
 
-.contact-page .contact-form .submit-button:hover {
+.submit-button:hover {
     background: #e65c00;
-}
-
-.contact-page .contact-info {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: var(--box-shadow);
-    max-width: 600px;
-    margin: 2rem auto 0;
-    text-align: center;
-}
-
-.contact-page .contact-info h2 {
-    font-size: 1.8rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-}
-
-.contact-page .contact-info p {
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-}
-
-.contact-page .contact-info i {
-    margin-right: 0.5rem;
-    color: var(--primary-color);
 }
 
 /* Footer */
@@ -423,22 +296,10 @@ footer {
         margin-bottom: 2rem;
     }
 
-    .packs-container {
+    .package-presentation {
         flex-direction: column;
-        align-items: center;
     }
 
-    .pack {
-        width: 80%;
-    }
-
-    .packages-page .package-detail .package-info {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .packages-page .package-detail .package-pricing {
-        text-align: left;
-        margin-top: 1rem;
-    }
-}
+    .package-image {
+        flex: 0 0 100%;
+        padding:
