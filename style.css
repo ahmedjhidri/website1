@@ -1,4 +1,4 @@
-/* Style CSS amélioré avec gestion de l'apparition au scroll pour le footer et correction de la visibilité du contenu */
+/* Style CSS amélioré avec gestion de l'apparition au scroll pour le footer */
 :root {
     --primary-color: #003366;
     --secondary-color: #3399ff;
@@ -150,17 +150,35 @@ footer:hover {
     background: #004488;
 }
 
-/* Ensure packs and contact sections are visible by default */
-.section-packs,
-.section-contact {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+.section-packs, .section-contact {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.section-packs h2,
-.section-contact h2 {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+body.scrolled-up .section-packs,
+body.scrolled-up .section-contact {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-packs h2, .section-contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary-color);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease-out 0.3s, transform 0.5s ease-out 0.3s;
+}
+
+body.scrolled-up .section-packs h2,
+body.scrolled-up .section-contact h2 {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .packs-container {
@@ -182,14 +200,28 @@ footer:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration), opacity 0.5s ease-out 0.5s, transform 0.5s ease-out 0.5s;
+}
+
+body.scrolled-up .pack {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .pack .pack-icon {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     color: var(--secondary-color);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out 0.7s, transform 0.5s ease-out 0.7s;
+}
+
+body.scrolled-up .pack .pack-icon {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .pack h3 {
@@ -231,12 +263,26 @@ footer:hover {
     margin-bottom: 2rem;
     text-align: center;
     color: var(--primary-color);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease-out 0.9s, transform 0.5s ease-out 0.9s;
+}
+
+body.scrolled-up .section-contact h2 {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .form-group {
     margin-bottom: 25px;
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease-out 0.9s, transform 0.5s ease-out 0.9s;
+}
+
+body.scrolled-up .form-group {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 form label {
@@ -269,9 +315,14 @@ form input:focus, form textarea:focus {
     border-radius: 8px;
     cursor: pointer;
     font-size: 1.1rem;
-    transition: background-color var(--transition-duration), transform var(--transition-duration), box-shadow var(--box-shadow);
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+    transition: background-color var(--transition-duration), transform var(--transition-duration), box-shadow var(--box-shadow), opacity 0.5s ease-out 1.1s, transform 0.5s ease-out 1.1s;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+body.scrolled-up .submit-button {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Animations Keyframes */
