@@ -15,7 +15,7 @@ body {
     color: var(--text-color);
     margin: 0;
     line-height: 1.6;
-    display: flex; /* Enable flexbox for overall layout */
+    display: flex;
 }
 
 /* Left Navigation Sidebar */
@@ -23,17 +23,17 @@ body {
     background: var(--primary-color);
     color: white;
     padding: 1rem;
-    width: 180px; /* Adjust width as needed */
+    width: 180px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     box-shadow: var(--box-shadow);
     z-index: 10;
-    position: fixed; /* Fixed sidebar */
+    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
-    overflow-y: auto; /* Enable scrolling if content overflows */
+    overflow-y: auto;
 }
 
 .left-nav .logo-container {
@@ -45,7 +45,7 @@ body {
 }
 
 .left-nav .logo-container img {
-    height: 50px; /* Adjust logo height */
+    height: 50px;
     margin-bottom: 0.5rem;
 }
 
@@ -82,15 +82,17 @@ body {
     padding: 0.75rem 0;
 }
 
-.left-nav .nav-buttons li a:hover {
+.left-nav .nav-buttons li a:hover,
+.left-nav .nav-buttons li a.active {
     color: var(--secondary-color);
+    font-weight: bold;
 }
 
 /* Main Content Area */
 main {
     flex-grow: 1;
     padding: 2rem;
-    margin-left: 180px; /* Adjust margin to accommodate the sidebar width */
+    margin-left: 180px;
 }
 
 /* Header Styles */
@@ -121,16 +123,15 @@ header p {
 }
 
 header .logo-right img {
-    height: 40px; /* Adjust logo size in header */
+    height: 40px;
 }
 
-/* Hero Section (on Accueil) */
+/* Hero Section */
 .hero {
-    padding: 3rem 0;
+    padding: 4rem 2rem;
     background: linear-gradient(to right, var(--primary-color), #0055aa);
     color: white;
     text-align: center;
-    padding: 4rem 2rem;
     border-radius: 8px;
 }
 
@@ -314,6 +315,12 @@ header .logo-right img {
     box-sizing: border-box;
 }
 
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
 .form-group textarea {
     resize: vertical;
 }
@@ -327,11 +334,30 @@ header .logo-right img {
     font-size: 1rem;
     cursor: pointer;
     font-weight: bold;
-    transition: background var(--transition-duration);
+    transition: background var(--transition-duration), transform 0.1s ease-in-out;
 }
 
 .submit-button:hover {
     background: #e65c00;
+}
+
+.submit-button:active {
+    transform: scale(0.98);
+}
+
+/* Feedback Message */
+.form-feedback {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.form-feedback.success {
+    color: green;
+}
+
+.form-feedback.error {
+    color: red;
 }
 
 /* Footer */
@@ -342,17 +368,17 @@ footer {
     padding: 1rem 2rem;
     font-size: 0.8rem;
     margin-top: 2rem;
-    margin-left: 180px; /* Adjust margin to align with main content */
+    margin-left: 180px;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 768px) {
     body {
-        flex-direction: column; /* Stack elements vertically */
+        flex-direction: column;
     }
 
     .left-nav {
-        position: static; /* Make navigation static at the top */
+        position: static;
         width: 100%;
         height: auto;
         flex-direction: row;
@@ -370,7 +396,7 @@ footer {
     }
 
     .left-nav .logo-container span {
-        display: none; /* Hide "CONSULTING" on smaller screens */
+        display: none;
     }
 
     .left-nav .nav-buttons {
@@ -390,8 +416,8 @@ footer {
     }
 
     main {
-        margin-left: 0; /* Remove left margin */
-        padding-top: 60px; /* Adjust top padding to accommodate top navigation */
+        margin-left: 0;
+        padding-top: 60px;
     }
 
     header {
@@ -411,6 +437,6 @@ footer {
     }
 
     footer {
-        margin-left: 0; /* Remove left margin */
+        margin-left: 0;
     }
 }
