@@ -382,3 +382,83 @@ form input:focus, form textarea:focus {
     line-height: 1.6;
     color: var(--text-color);
 }
+/* Styles for the Services Page */
+.services-page {
+    padding: 3rem 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.services-page h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.service {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.service h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.service h3 i {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    width: 24px; /* Adjust as needed for icon alignment */
+    text-align: center;
+}
+
+.service p {
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .services-page {
+        padding: 2rem 1.5rem;
+    }
+
+    .services-page h1 {
+        font-size: 2rem;
+    }
+
+    .service {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .service h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .services-page h1 {
+        font-size: 1.75rem;
+    }
+
+    .service h3 {
+        font-size: 1.2rem;
+    }
+
+    .service p {
+        font-size: 0.95rem;
+    }
+}
