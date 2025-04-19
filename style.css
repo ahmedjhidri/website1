@@ -1,196 +1,353 @@
-/* === Global Styles === */
-:root {
-  --primary-color: #1e90ff;
-  --secondary-color: #00bcd4;
-  --background-color: #f4f4f4;
-  --text-color: #222;
-  --dark-bg: #1c1c1c;
-  --dark-text: #f5f5f5;
-  --transition: 0.3s ease-in-out;
-}
-
+/* Base */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: background-color var(--transition), color var(--transition);
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-body.dark-mode {
-  background-color: var(--dark-bg);
-  color: var(--dark-text);
+/* Top Navigation */
+.top-nav {
+    background-color: #001f3f;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+.logo-container {
+    display: flex;
+    align-items: center;
 }
 
-h1, h2, h3 {
-  margin-bottom: 1rem;
-  color: var(--primary-color);
+.logo-container img {
+    height: 40px;
+    margin-right: 10px;
 }
 
-p {
-  line-height: 1.6;
+.logo-container strong {
+    font-size: 1.5rem;
+    color: #00d1b2;
 }
 
-a {
-  color: var(--secondary-color);
-  text-decoration: none;
-  transition: color var(--transition);
+.logo-container span {
+    font-size: 1.2rem;
+    margin-left: 5px;
 }
 
-a:hover {
-  color: var(--primary-color);
+.nav-buttons {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
 }
 
-/* === Header and Nav === */
+.nav-buttons a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-buttons a:hover {
+    color: #00d1b2;
+}
+
+/* Header */
 header {
-  background: var(--primary-color);
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #007bff, #00d1b2);
+    color: white;
+    flex-wrap: wrap;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+.header-content {
+    max-width: 600px;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
+.header-content h1 {
+    margin: 0 0 1rem;
+    font-size: 2.5rem;
+    animation: fadeInDown 1s ease-in-out;
 }
 
-nav ul li a {
-  color: white;
-  font-weight: 500;
+.header-content p {
+    font-size: 1.2rem;
+    animation: fadeInUp 1s ease-in-out;
 }
 
-nav ul li a:hover {
-  text-decoration: underline;
+.logo-right img {
+    height: 80px;
+    animation: zoomIn 1s ease-in-out;
 }
 
-.burger {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  cursor: pointer;
+/* Content Wrapper */
+.content-wrapper {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.burger div {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  transition: all var(--transition);
+/* Services, Packages, Contact Sections */
+.service, .package-presentation, .contact-form, .contact-info {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 1s ease-in-out;
 }
 
-/* === Hero Section === */
+.service h2, .package-details h3 {
+    color: #007bff;
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Call To Action Button */
+.cta-button, .submit-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover, .submit-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Contact Form Fields */
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* Footer */
+.bottom-bar {
+    background-color: #001f3f;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo-right {
+        margin-top: 1rem;
+    }
+}
+/* Style de la section Hero */
 .hero {
-  padding: 4rem 2rem;
-  text-align: center;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-  color: white;
-  border-radius: 0 0 20px 20px;
-  transition: background var(--transition);
+    background: linear-gradient(135deg, #00cfff, #0099cc);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    background-size: cover;
+    background-position: center;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 1.2rem;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
 }
 
-/* === Services, Packages, Contact Cards === */
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 1rem 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform var(--transition), background-color var(--transition);
+.hero .cta-button {
+    background-color: #fff;
+    color: #0099cc;
+    padding: 10px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  background-color: #e6f0ff;
+.hero .cta-button:hover {
+    background-color: #00b7d2;
+    color: white;
 }
 
-body.dark-mode .card {
-  background: #2e2e2e;
+/* Styles des services preview */
+.services-preview {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
 }
 
-/* === Footer === */
-footer {
-  background: var(--primary-color);
-  color: white;
-  text-align: center;
-  padding: 1rem;
+.services-preview h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
 }
 
-/* === Responsive and Burger Menu === */
-@media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background-color: var(--primary-color);
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    width: 200px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  nav ul.active {
+.services-container {
     display: flex;
-  }
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
-  .burger {
+.service-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+}
+
+.service-item i {
+    font-size: 3rem;
+    color: #0099cc;
+    margin-bottom: 15px;
+}
+
+.service-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.service-item .cta-button {
+    background-color: #00cfff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.service-item .cta-button:hover {
+    background-color: #0099cc;
+}
+
+/* Styles des packages preview */
+.packages-preview {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.packages-preview h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.packages-container {
     display: flex;
-  }
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-/* === Toggle Button for Dark Mode === */
-.toggle-darkmode {
-  background: none;
-  border: 2px solid white;
-  color: white;
-  padding: 0.4rem 1rem;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background-color var(--transition), color var(--transition);
+.package-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.toggle-darkmode:hover {
-  background-color: white;
-  color: var(--primary-color);
+.package-item:hover {
+    transform: translateY(-10px);
 }
 
-/* === Animations === */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.package-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 
-.fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+.package-item p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.package-item .cta-button {
+    background-color: #00cfff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.package-item .cta-button:hover {
+    background-color: #0099cc;
 }
