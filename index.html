@@ -4,14 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accueil - NetSecure Consulting</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOp8yQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <nav class="top-nav">
+    <nav class="top-nav" role="navigation" aria-label="Menu principal">
         <div class="logo-container">
-            <img src="logo.png" alt="NetSecure Logo" />
+            <img src="logo.png" alt="NetSecure Logo" loading="lazy" />
             <strong class="brand-name">NetSecure</strong>
             <span>CONSULTING</span>
         </div>
@@ -27,7 +30,7 @@
         </button>
     </nav>
 
-    <header class="hero">
+    <header class="hero" role="banner">
         <div class="hero-content">
             <h1>Bienvenu chez NetSecure Consulting</h1>
             <p>Des solutions IT et cybersécurité sur mesure pour les entreprises modernes</p>
@@ -35,9 +38,9 @@
         </div>
     </header>
 
-    <main class="main-content">
-        <section class="services-preview">
-            <h2>Nos Services</h2>
+    <main class="main-content" role="main">
+        <section class="services-preview" aria-labelledby="services-heading">
+            <h2 id="services-heading">Nos Services</h2>
             <div class="services-container">
                 <div class="service-item">
                     <i class="fas fa-shield-alt"></i>
@@ -60,8 +63,8 @@
             </div>
         </section>
 
-        <section class="packages-preview">
-            <h2>Nos Packages</h2>
+        <section class="packages-preview" aria-labelledby="packages-heading">
+            <h2 id="packages-heading">Nos Packages</h2>
             <p>Choisissez la solution qui correspond à vos besoins, adaptée à votre entreprise.</p>
             <div class="packages-container">
                 <div class="package-item">
@@ -81,11 +84,29 @@
                 </div>
             </div>
         </section>
+
+        <section class="testimonials" aria-labelledby="testimonials-heading">
+            <h2 id="testimonials-heading">Ce Que Nos Clients Disent</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-item">
+                    <p>"NetSecure a transformé notre sécurité IT. Leur expertise est inégalée !"</p>
+                    <h4>— Jean Dupont, CEO de TechCorp</h4>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Le Pack Grow'IT était parfait pour notre croissance rapide."</p>
+                    <h4>— Marie Lefèvre, Directrice de StartUpX</h4>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="bottom-bar">
+    <footer class="bottom-bar" role="contentinfo">
         <p>© 2025 NetSecure Consulting - Tous droits réservés</p>
     </footer>
+
+    <button id="back-to-top" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
         // Set initial theme based on user preference or system settings
@@ -102,6 +123,31 @@
             const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+            console.log(`Theme switched to: ${newTheme}`);
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.top-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Back-to-top button logic
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
