@@ -23,12 +23,19 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
     background-color: var(--bg-color);
     color: var(--text-color);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     transition: var(--transition);
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 /* Top Navigation */
@@ -43,6 +50,13 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: var(--transition);
+}
+
+.top-nav.scrolled {
+    background-color: var(--nav-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 0.8rem 2rem;
 }
 
 .logo-container {
@@ -88,6 +102,11 @@ body {
     transform: translateY(-2px);
 }
 
+.nav-buttons a:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
 /* Theme Toggle Button */
 #theme-toggle {
     padding: 0.8rem 1.5rem;
@@ -106,6 +125,11 @@ body {
 #theme-toggle:hover, #theme-toggle:focus {
     background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
     transform: scale(1.08);
+}
+
+#theme-toggle:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
 }
 
 [data-theme="dark"] #theme-toggle {
@@ -128,142 +152,20 @@ body {
     display: none;
 }
 
-/* Header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3.5rem 2rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--text-color);
-    flex-wrap: wrap;
-}
-
-.header-content {
-    max-width: 650px;
-}
-
-.header-content h1 {
-    margin: 0 0 1.2rem;
-    font-size: 2.8rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    animation: fadeInDown 1.2s ease-in-out;
-}
-
-.header-content p {
-    font-size: 1.3rem;
-    animation: fadeInUp 1.2s ease-in-out;
-}
-
-.logo-right img {
-    height: 90px;
-    animation: zoomIn 1.2s ease-in-out;
-}
-
-/* Content Wrapper */
-.content-wrapper {
-    flex: 1;
-    padding: 2.5rem;
-    max-width: 1280px;
-    margin: 0 auto;
-}
-
-/* Services, Packages, Contact Sections */
-.service, .package-presentation, .contact-form, .contact-info {
-    background: var(--card-bg);
-    border-radius: 16px;
-    padding: 2.5rem;
-    margin-bottom: 2.5rem;
-    box-shadow: var(--shadow);
-    animation: fadeIn 1s ease-in-out;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.service h2, .package-details h3 {
-    color: var(--primary-color);
-    font-weight: 600;
-    letter-spacing: 0.3px;
-}
-
-ul {
-    padding-left: 1.8rem;
-}
-
-ul li {
-    margin-bottom: 0.6rem;
-}
-
-/* Call To Action Button */
-.cta-button, .submit-button {
-    display: inline-block;
-    padding: 0.9rem 1.8rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--text-color);
-    text-decoration: none;
-    border: none;
-    border-radius: 8px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-[data-theme="dark"] .cta-button, [data-theme="dark"] .submit-button {
-    box-shadow: 0 0 10px var(--secondary-color);
-}
-
-.cta-button:hover, .submit-button:hover, .cta-button:focus, .submit-button:focus {
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-    transform: scale(1.08) rotate(2deg);
-}
-
-/* Contact Form Fields */
-input, textarea {
-    width: 100%;
-    padding: 0.85rem;
-    margin-top: 0.6rem;
-    margin-bottom: 1.2rem;
-    border: 1px solid var(--text-color);
-    border-radius: 8px;
-    font-size: 1.1rem;
-    background: var(--card-bg);
-    color: var(--text-color);
-    transition: var(--transition);
-}
-
-input:focus, textarea:focus {
-    border-color: var(--secondary-color);
-    outline: none;
-    box-shadow: 0 0 8px var(--secondary-color);
-}
-
-/* Footer */
-.bottom-bar {
-    background-color: var(--nav-bg);
-    color: var(--text-color);
-    text-align: center;
-    padding: 1.2rem;
-    font-size: 1rem;
-    margin-top: auto;
-}
-
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--text-color);
-    text-align: center;
-    padding: 120px 20px;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(0, 209, 178, 0.8)), url('hero-bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    color: var(--text-color);
+    text-align: center;
+    padding: 120px 20px;
 }
 
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 25px;
-    font-weight: 700;
-    letter-spacing: 1px;
 }
 
 .hero p {
@@ -273,7 +175,7 @@ input:focus, textarea:focus {
 
 .hero .cta-button {
     background: linear-gradient(135deg, #ffffff, var(--secondary-color));
-    color: var(--primary-color);
+    color: #fff;
     padding: 12px 35px;
     border-radius: 30px;
     font-weight: 700;
@@ -283,6 +185,11 @@ input:focus, textarea:focus {
     background: linear-gradient(135deg, var(--secondary-color), #ffffff);
     color: var(--text-color);
     transform: scale(1.1);
+}
+
+.hero .cta-button:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
 }
 
 /* Services Preview */
@@ -295,7 +202,6 @@ input:focus, textarea:focus {
 .services-preview h2 {
     font-size: 2.8rem;
     margin-bottom: 35px;
-    font-weight: 600;
 }
 
 .services-container {
@@ -319,6 +225,14 @@ input:focus, textarea:focus {
 .service-item:hover, .service-item:focus {
     transform: translateY(-12px) rotate(1deg);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+}
+
+.service-item:hover i,
+.service-item:hover h3,
+.service-item:hover p {
+    color: #fff;
 }
 
 .service-item i {
@@ -328,7 +242,7 @@ input:focus, textarea:focus {
 }
 
 .service-item h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 12px;
 }
 
@@ -341,6 +255,7 @@ input:focus, textarea:focus {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     padding: 12px 25px;
     border-radius: 8px;
+    color: var(--text-color);
 }
 
 .service-item .cta-button:hover, .service-item .cta-button:focus {
@@ -357,7 +272,6 @@ input:focus, textarea:focus {
 .packages-preview h2 {
     font-size: 2.8rem;
     margin-bottom: 35px;
-    font-weight: 600;
 }
 
 .packages-container {
@@ -381,10 +295,17 @@ input:focus, textarea:focus {
 .package-item:hover, .package-item:focus {
     transform: translateY(-12px) rotate(1deg);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+}
+
+.package-item:hover h3,
+.package-item:hover p {
+    color: #fff;
 }
 
 .package-item h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 12px;
 }
 
@@ -397,10 +318,105 @@ input:focus, textarea:focus {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     padding: 12px 25px;
     border-radius: 8px;
+    color: var(--text-color);
 }
 
 .package-item .cta-button:hover, .package-item .cta-button:focus {
     background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+}
+
+/* Testimonials Section */
+.testimonials {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: var(--bg-color);
+}
+
+.testimonials h2 {
+    font-size: 2.8rem;
+    margin-bottom: 35px;
+    font-weight: 600;
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.testimonial-item {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 16px;
+    width: 300px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.testimonial-item:hover, .testimonial-item:focus {
+    transform: translateY(-12px) rotate(1deg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-item p {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.testimonial-item h4 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+/* Footer */
+.bottom-bar {
+    background-color: var(--nav-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 1rem;
+    margin-top: auto;
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-color);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover, #back-to-top:focus {
+    transform: scale(1.1);
+}
+
+#back-to-top:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+#back-to-top i {
+    font-size: 1.5rem;
 }
 
 /* Animations */
@@ -437,14 +453,8 @@ input:focus, textarea:focus {
         margin-top: 1.2rem;
     }
 
-    header {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem;
-    }
-
-    .logo-right {
-        margin-top: 1.5rem;
+    .hero {
+        padding: 80px 15px;
     }
 
     .hero h1 {
@@ -455,7 +465,11 @@ input:focus, textarea:focus {
         font-size: 1.2rem;
     }
 
-    .service-item, .package-item {
+    .services-preview, .packages-preview, .testimonials {
+        padding: 40px 15px;
+    }
+
+    .service-item, .package-item, .testimonial-item {
         width: 100%;
         max-width: 340px;
     }
@@ -463,14 +477,10 @@ input:focus, textarea:focus {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 80px 15px;
+        padding: 60px 10px;
     }
 
-    .services-preview, .packages-preview {
-        padding: 40px 15px;
-    }
-
-    .content-wrapper {
-        padding: 1.5rem;
+    .services-preview h2, .packages-preview h2, .testimonials h2 {
+        font-size: 2rem;
     }
 }
