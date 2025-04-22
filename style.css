@@ -88,6 +88,46 @@ body {
     transform: translateY(-2px);
 }
 
+/* Theme Toggle Button */
+#theme-toggle {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#theme-toggle:hover, #theme-toggle:focus {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    transform: scale(1.08);
+}
+
+[data-theme="dark"] #theme-toggle {
+    box-shadow: 0 0 10px var(--secondary-color);
+}
+
+[data-theme="dark"] #theme-toggle .fa-moon {
+    display: none;
+}
+
+[data-theme="dark"] #theme-toggle .fa-sun {
+    display: inline;
+}
+
+[data-theme="light"] #theme-toggle .fa-moon {
+    display: inline;
+}
+
+[data-theme="light"] #theme-toggle .fa-sun {
+    display: none;
+}
+
 /* Header */
 header {
     display: flex;
